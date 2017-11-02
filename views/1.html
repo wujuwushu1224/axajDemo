@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/index" method="post">    
+        <input type="button" id="Btn" value="提交">
+        <p></p>
+    </form>
+<script>
+    var Btn = document.getElementById("Btn");
+    var p1 = document.querySelector("p");
+    Btn.onclick = function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('get',"/index",true);
+        xhr.onload =function() {
+            console.log(xhr)
+            if (xhr.status == 200) {
+                console.log(xhr.responseText)
+                p1.innerHTML = xhr.responseText;
+               
+            }
+        }
+        xhr.send();
+    }
+</script>
+</body>
+</html>
